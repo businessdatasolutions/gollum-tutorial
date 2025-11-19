@@ -1,0 +1,5 @@
+{
+  "name": "GOLLuM: Bayesian Optimization for LLMs",
+  "description": "An interactive educational platform demonstrating how Gaussian Processes can fine-tune Large Language Models for scientific discovery, based on the GOLLuM framework.",
+  "requestFramePermissions": []
+}
