@@ -62,10 +62,9 @@ const App: React.FC = () => {
           <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
             {content.title}
           </h1>
-          <div
-            className="prose prose-slate text-lg text-slate-600 leading-relaxed whitespace-pre-line"
-            dangerouslySetInnerHTML={{ __html: content.body }}
-          />
+          <div className="prose prose-slate text-lg text-slate-600 leading-relaxed whitespace-pre-line">
+            {content.body}
+          </div>
         </div>
 
         <div className="my-8">

@@ -44,10 +44,10 @@ export const PERFORMANCE_DATA: ChartData[] = Array.from({ length: 50 }).map((_, 
   if (gollum <= staticLLM) {
     gollum = staticLLM + 0.5 + Math.random() * 0.5;
   }
-
+  
   return {
     iteration: x,
-    staticLLM: Math.max(0, staticLLM),
+    staticLLM: Math.max(0, staticLLM), 
     gollum: Math.max(0, gollum)
   };
 });
@@ -62,37 +62,37 @@ export const CONTENT = {
   PROBLEM: {
     title: "The Reliability Gap",
     body: `Current approaches force a trade-off:
-
-    1. <strong>Traditional Bayesian Optimization (BO):</strong> Reliable and uncertainty-aware, but requires extensive manual feature engineering (e.g., chemical fingerprints).
-    2. <strong>Direct LLM Prompting:</strong> Accessible and knowledgeable, but prone to hallucinations and overconfidence.
-
+    
+    1. **Traditional Bayesian Optimization (BO):** Reliable and uncertainty-aware, but requires extensive manual feature engineering (e.g., chemical fingerprints).
+    2. **Direct LLM Prompting:** Accessible and knowledgeable, but prone to hallucinations and overconfidence.
+    
     Static LLM embeddings often fail to capture the specific nuances of a new experimental domain, leading to a "rough" optimization landscape.`
   },
   SOLUTION: {
     title: "The GOLLuM Framework",
     body: `GOLLuM bridges the gap by treating the LLM not as a static black box, but as a learnable component within a probabilistic system.
-
-    It uses the <strong>Marginal Likelihood</strong> of a Gaussian Process (GP) to backpropagate gradients into the LLM (or a lightweight adapter like LoRA).
-
+    
+    It uses the **Marginal Likelihood** of a Gaussian Process (GP) to backpropagate gradients into the LLM (or a lightweight adapter like LoRA).
+    
     Effectively, the uncertainty of the GP teaches the LLM how to organize its "mind" (latent space) to better represent the experiment.`
   },
   LATENT_SPACE: {
     title: "Reshaping the Latent Space",
     body: `This is the core mechanism. In a standard LLM, experiments with different outcomes might be embedded randomly or based on textual similarity only.
-
-    <strong>Interactive Demo:</strong>
-    The visualization below represents the LLM's "Mental Map" of chemical reactions.
-    - <strong>Blue/Purple:</strong> High Yield
-    - <strong>Orange/Yellow:</strong> Low Yield
-
+    
+    **Interactive Demo:**
+    The visualization below represents the LLM's "Mental Map" of chemical reactions. 
+    - **Blue/Purple:** High Yield
+    - **Orange/Yellow:** Low Yield
+    
     Click "Fine-tune" to see how the GP's objective forces the LLM to cluster successful experiments together, creating a smoother surface for optimization.`
   },
   RESULTS: {
     title: "Performance & Impact",
     body: `By structuring the latent space, GOLLuM allows the optimizer to "reason" about the chemical space more effectively.
-
+    
     In benchmarks like the Buchwald-Hartwig reactions, this approach nearly doubles the discovery rate of high-yielding conditions compared to static embeddings or traditional descriptors (reaching ~43% vs ~24%).
-
+    
     It creates an interpretable, data-driven map of chemical reality without explicit instruction.`
   },
   APPLICATIONS: {
